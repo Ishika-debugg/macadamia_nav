@@ -22,19 +22,6 @@ def generate_launch_description():
             }]
         ),
 
-        # Launch RViz2
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz2',
-            output='screen',
-            arguments=['-d', os.path.join(
-                FindPackageShare(pkg_name).find(pkg_name),
-                'rviz',
-                'macadamia_nav.rviz'  # optional custom config
-            )]
-        ),
-
         # Start your custom row follower node
         Node(
             package=pkg_name,
