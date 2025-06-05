@@ -11,22 +11,11 @@ def generate_launch_description():
 
     return LaunchDescription([
 
-        # Start SLAM Toolbox
-        Node(
-            package='slam_toolbox',
-            executable='sync_slam_toolbox_node',
-            name='slam_toolbox',
-            output='screen',
-            parameters=[{
-                'use_sim_time': False
-            }]
-        ),
-
         # Start your custom row follower node
         Node(
-            package=pkg_name,
+            package='macadamia_nav',
             executable='row_follower',
             name='row_follower',
-            output='screen',
+            output='screen'
         ),
     ])
