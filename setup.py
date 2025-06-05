@@ -10,7 +10,6 @@ setup(
     packages=[package_name],
     data_files=[
         ('share/' + package_name + '/launch', glob('launch/*.py')),
-        ('share/' + package_name + '/rviz', glob('rviz/*.rviz')),
         ('share/' + package_name + '/resource', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
@@ -24,6 +23,7 @@ setup(
     entry_points={
         'console_scripts': [
             'row_follower = macadamia_nav.row_follower:main',
+            'macadamia_navigator = macadamia_nav.macadamia_navigator:main',
         ],
     },
 )
