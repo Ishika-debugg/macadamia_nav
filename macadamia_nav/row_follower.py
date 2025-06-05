@@ -17,8 +17,8 @@ class RowFollower(Node):
 
     def lidar_callback(self, msg):
         # Convert ranges to cartesian coordinates
-        angles = np.arange(msg.angle_min, msg.angle_max, msg.angle_increment)
         ranges = np.array(msg.ranges)
+        angles = np.linspace(msg.angle_min, msg.angle_max, num=len(ranges))
         mask = (ranges > msg.range_min) & (ranges < msg.range_max)
         x = ranges[mask] * np.cos(angles[mask])
         y = ranges[mask] * np.sin(angles[mask])
